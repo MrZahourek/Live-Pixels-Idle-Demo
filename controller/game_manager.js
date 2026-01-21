@@ -1,12 +1,12 @@
 let gameLoopInterval;
 
-export let gameState = {
+export let gameData = {
     currentBalance: 0,
     currentIncomePerSecond: 0,
     all_assets: []
 }
 
-const buildingsNameOrder = [];
+const buildingsNameOrder = ["Advanced Hardware", "Increased Infrastructure", "Frequency Relay", "Multiple Cyphers", "Movable Bases"];
 const itemsNameOrder = [];
 
 const buildingsParams = new Map();
@@ -14,7 +14,7 @@ const itemsParams = new Map();
 
 /* --- Classes --- */
 class Building {
-    constructor(name, increasePerSecond, costValue) {
+    constructor(name, increasePerSecond, costValue, element) {
         this.name = name;
 
         this.costValue = costValue;
@@ -22,17 +22,23 @@ class Building {
 
         this.increasePerSecond = increasePerSecond;
         this.totalBuildings = 0;
+
+        this.elementBuyText = element;
+        this.costMultiplier = 1.2;
     }
 
     buy() {
         // check if you have enough money
-        if (gameState.currentBalance < this.costValue) {
+        if (gameData.currentBalance < this.costValue) {
             return false;
         }
         else {
             // if yes buy it
             this.totalBuildings++;
             this.getTotalPerSecond();
+            // change cost
+            this.costValue = Math.floor( this.costValue * this.costMultiplier );
+            this.elementBuyText = this.costValue;
         }
     }
 
@@ -44,7 +50,7 @@ class Building {
         else {
             // sell it
             this.totalBuildings--;
-            gameState.currentBalance += this.resellValue;
+            gameData.currentBalance += this.resellValue;
         }
 
     }
@@ -62,6 +68,9 @@ class Item {}
 
 function StartGame() {
     // insert 5 start buildings
+    for (let i = 0; i < 5; i++) {
+        buildingsParams.get(buildingsNameOrder[i]);
+    }
 
     // insert first item
 

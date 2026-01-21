@@ -10,8 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Live pixels</title>
 
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/style.css?v=1.0.1">
     <link rel="stylesheet" href="stylesheets/popup.css">
+
+    <!--links to fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
 
 
 </head>
@@ -19,7 +24,25 @@
 
 <div id="money"></div>
 
-<div id="buildings_wrapper"></div>
+<div id="buildings_wrapper">
+    <div class="building">
+        <span class="building_name">Building</span>
+        <span class="buy_text">Buy</span>
+        <span class="building_cost">0</span>
+    </div>
+
+    <div class="building">
+        <span class="building_name">Building</span>
+        <span class="buy_text">Buy</span>
+        <span class="building_cost">0</span>
+    </div>
+
+    <div class="building">
+        <span class="building_name">Building</span>
+        <span class="buy_text">Buy</span>
+        <span class="building_cost">0</span>
+    </div>
+</div>
 
 <div id="artefacts_wrapper"></div>
 
