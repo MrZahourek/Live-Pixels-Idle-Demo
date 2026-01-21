@@ -44,9 +44,9 @@
     </div>
 </div>
 
-<div id="artefacts_wrapper"></div>
+<div id="items_wrapper"></div>
 
-<button id="clicker">click me</button>
+<img src="images/ascii-art-text.png" alt="" id="manual_click">
 
 <!-- scripts -->
 <script type="module" src="../controller/game_manager.js"></script>
